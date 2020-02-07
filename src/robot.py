@@ -37,10 +37,6 @@ class Robot(magicbot.MagicRobot):
     extunable = tunable(5)
     drive: Drive
     intake: Intake
-    control_panel: ControlPanel
-    odometry: Odometry
-    align: Align
-    launcher: Launcher
 
     TRACK_WIDTH = 0.43  # Units: Meters
 
@@ -51,19 +47,10 @@ class Robot(magicbot.MagicRobot):
         self.joystick_alt = wpilib.Joystick(2)
 
         # Buttons
-        self.btn_launcher_solenoid = JoystickButton(self.joystick_alt, 1)
-        self.btn_align = Toggle(self.joystick_alt, 2)
         self.btn_intake_in = JoystickButton(self.joystick_alt, 3)
         self.btn_intake_out = JoystickButton(self.joystick_alt, 5)
-        self.btn_cp_extend = Toggle(self.joystick_left, 4)
-        self.btn_winch = JoystickButton(self.joystick_alt, 6)
-        self.btn_cp_motor = JoystickButton(self.joystick_left, 3)
-        self.btn_launcher_motor = Toggle(self.joystick_alt, 12)
         self.btn_slow_movement = Toggle(self.joystick_right, 3)
         self.btn_intake_solenoid = Toggle(self.joystick_alt, 4)
-        self.btn_scissor_extend = Toggle(self.joystick_right, 5)
-        self.btn_color_sensor = JoystickButton(self.joystick_left, 5)
-        self.btn_cp_stop = JoystickButton(self.joystick_left, 2)
 
         # Set up Speed Controller Groups
         self.left_motors = wpilib.SpeedControllerGroup(
