@@ -13,9 +13,10 @@ class Drive:
     """
 
     train: wpilib.drive.DifferentialDrive
-y = will_reset_to(0)
+    y = will_reset_to(0)
     rot = will_reset_to(0)
-    deadband = will_reset_    def move(self, y: float, rot: float):
+    deadband = will_reset_ 
+   def move(self, y: float, rot: float):
         """
         Move robot.
         :param y: Speed of motion in the y direction. [-1..1]
