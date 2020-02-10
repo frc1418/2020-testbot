@@ -1,7 +1,6 @@
 import wpilib
 import wpilib.drive
 from wpilib.controller import PIDController
-from common.navx import navx
 from magicbot import will_reset_to
 from networktables.util import ntproperty
 
@@ -15,8 +14,11 @@ class Drive:
     train: wpilib.drive.DifferentialDrive
     y = will_reset_to(0)
     rot = will_reset_to(0)
-    deadband = will_reset_ 
-   def move(self, y: float, rot: float):
+
+    SPEED_CONSTANT = 0.5
+    ROT_CONSTANT = 0.75
+
+    def move(self, y: float, rot: float):
         """
         Move robot.
         :param y: Speed of motion in the y direction. [-1..1]
@@ -29,4 +31,4 @@ class Drive:
         """
         Handle driving.
         """
-        self.train.setDeadband(self.deadband)
+        self.train.arcadeDrive(self.y * self.SPEED_CONSTANT, self.rot * self.ROT_CONSTANT)

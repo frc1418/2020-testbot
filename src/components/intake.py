@@ -1,11 +1,10 @@
 import wpilib
 from wpilib.interfaces import SpeedController
+from wpilib import VictorSP
 from magicbot import will_reset_to
-from common.ctre import WPI_VictorSPX
-
 
 class Intake:
-    intake_motor: WPI_VictorSPX
+    intake_motor: VictorSP
 
     speed = will_reset_to(0)
 
