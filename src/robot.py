@@ -40,8 +40,8 @@ class Robot(magicbot.MagicRobot):
         self.joystick_alt = wpilib.Joystick(2)
 
         # Buttons
-        self.btn_intake_in = JoystickButton(self.joystick_right, 1)
-        self.btn_intake_out = JoystickButton(self.joystick_left, 1)
+        self.btn_intake_in = JoystickButton(self.joystick_alt, 2)
+        self.btn_intake_out = JoystickButton(self.joystick_alt, 1)
 
         # Set up Speed Controller Groups
         self.left_motors = wpilib.SpeedControllerGroup(
@@ -66,7 +66,8 @@ class Robot(magicbot.MagicRobot):
 
         # Intake
         if self.btn_intake_out.get():
-            self.intake.spin(1)
+            if self.joystick_right.getX() >= -0.1 and self.joystick_right.getX() <= 0.1:
+                self.intake.spin(1)
         elif self.btn_intake_in.get():
             self.intake.spin(-1)
 
